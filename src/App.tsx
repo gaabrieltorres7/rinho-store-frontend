@@ -1,17 +1,15 @@
-import { FC } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-// components
-import Header from './components/header/header.component'
+// Pages
+import HomePage from './pages/home/home.page'
 
-interface AppProps {
-  message?: string
-}
-
-const App: FC<AppProps> = ({ message }) => {
+const App = () => {
   return (
-    <div>
-      <Header />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
