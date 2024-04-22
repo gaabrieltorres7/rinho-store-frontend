@@ -9,3 +9,26 @@ export const HeaderContainer = styled.div`
   padding: 20px;
   color: ${Colors.text.white};
 `
+
+// exsc para utilizar snippets
+export const HeaderTitle = styled.h2`
+  font-weight: bold;
+  font-size: 1.5rem;
+`
+
+export const HeaderItems = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const HeaderItem = styled.div`
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  &:nth-child(1), 
+  &:nth-child(2), 
+  &:nth-child(3){
+    margin-right: 40px;
+  }
+`

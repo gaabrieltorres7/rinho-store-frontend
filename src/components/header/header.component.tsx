@@ -1,17 +1,17 @@
 import { BsCart3 } from 'react-icons/bs'
-import { HeaderContainer } from './header.style'
+import { HeaderContainer, HeaderItem, HeaderItems, HeaderTitle } from './header.style'
 import './header.styles.css'
 
 const Header = () => {
   return (
     <HeaderContainer>
-        <h2 className="header-title">RINHO STORE</h2>
-        <div className="header-items">
-          <div className="header-item">Explorar</div>
-          <div className="header-item">Login</div>
-          <div className="header-item">Criar Conta</div>
-          <div className="header-item"><BsCart3 size={25}/><p style={{ marginLeft: 4 }}>1</p></div>
-        </div>
+        <HeaderTitle>RINHO STORE</HeaderTitle>
+        <HeaderItems>
+          <HeaderItem>Explorar</HeaderItem>
+          <HeaderItem>Login</HeaderItem>
+          <HeaderItem>Criar Conta</HeaderItem>
+          <HeaderItem><BsCart3 size={25}/><p style={{ marginLeft: 4 }}>1</p></HeaderItem>
+        </HeaderItems>
     </HeaderContainer>
   )
 }
