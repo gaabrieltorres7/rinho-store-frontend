@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import Category from '../../types/category.types'
 import { CategoryItemContainer, CategoryName } from './category-item.styles'
-import './category-item.styles.css'
 
 interface CategoryItemProps {
   category: Category
