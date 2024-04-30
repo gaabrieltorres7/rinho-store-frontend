@@ -14,13 +14,18 @@ import {
   LoginSubtitle
 } from './login.styles'
 
+interface LoginFormData {
+  email: string
+  password: string
+}
+
 const LoginPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm()
-  const handleSubmitPress = (data: any) => {
+  } = useForm<LoginFormData>()
+  const handleSubmitPress = (data: LoginFormData) => {
     console.log({ data })
   }
 
@@ -61,6 +66,7 @@ const LoginPage = () => {
           <LoginInputContainer>
             <p>Senha</p>
             <CustomInput
+              type='password'
               hasError={!!errors?.password}
               placeholder='Digite sua senha'
               {...register('password', { required: true })}
