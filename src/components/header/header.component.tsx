@@ -9,9 +9,13 @@ const Header = () => {
     navigate('/login')
   }
 
+  const handleHomeClick = () => {
+    navigate('/')
+  }
+
   return (
     <HeaderContainer>
-        <HeaderTitle>RINHO STORE</HeaderTitle>
+        <HeaderTitle onClick={handleHomeClick}>RINHO STORE</HeaderTitle>
         <HeaderItems>
           <HeaderItem>Explorar</HeaderItem>
           <HeaderItem onClick={handleLoginClick}>Login</HeaderItem>
