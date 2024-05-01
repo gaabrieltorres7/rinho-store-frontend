@@ -10,13 +10,16 @@ import {
 
 import { FiLogIn } from 'react-icons/fi'
 
+import { createUserWithEmailAndPassword } from '@firebase/auth'
+import { addDoc, collection } from '@firebase/firestore'
 import { useForm } from 'react-hook-form'
 import { isEmail } from 'validator'
 import InputErrorMessage from '../../components/input-error-message/input-error-message.component'
+import { auth, db } from '../../config/firebase.config'
 
 interface SignUpFormData {
-  name: string
-  lastname: string
+  firstName: string
+  lastName: string
   email: string
   password: string
   passwordConfirmation: string
@@ -30,8 +33,18 @@ const SignUpPage = () => {
     formState: { errors }
   } = useForm<SignUpFormData>()
 
-  const handleSubmitPress = (data: SignUpFormData) => {
-    console.log({ data })
+  const handleSubmitPress = async ({ firstName, lastName, email, password }: SignUpFormData) => {
+    try {
+      const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
+      await addDoc(collection(db, 'users'), {
+        id: userCredentials.user.uid,
+        email: userCredentials.user.email,
+        firstName,
+        lastName
+      })
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const watchPassword = watch('password')
@@ -46,11 +59,11 @@ const SignUpPage = () => {
           <SignUpInputContainer>
             <p>Nome</p>
             <CustomInput
-              hasError={!!errors?.name}
+              hasError={!!errors?.firstName}
               placeholder='Digite seu nome'
-              {...register('name', { required: true })}
+              {...register('firstName', { required: true })}
             />
-            {errors?.name?.type === 'required' && (
+            {errors?.firstName?.type === 'required' && (
               <InputErrorMessage>O nome é obrigatório</InputErrorMessage>
             )}
           </SignUpInputContainer>
@@ -58,11 +71,11 @@ const SignUpPage = () => {
           <SignUpInputContainer>
             <p>Sobrenome</p>
             <CustomInput
-              hasError={!!errors?.lastname}
+              hasError={!!errors?.lastName}
               placeholder='Digite seu sobrenome'
-              {...register('lastname', { required: true })}
+              {...register('lastName', { required: true })}
             />
-            {errors?.lastname?.type === 'required' && (
+            {errors?.lastName?.type === 'required' && (
               <InputErrorMessage>O sobrenome é obrigatório</InputErrorMessage>
             )}
           </SignUpInputContainer>
