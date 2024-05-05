@@ -12,10 +12,13 @@ import { FiLogIn } from 'react-icons/fi'
 
 import { AuthError, AuthErrorCodes, createUserWithEmailAndPassword } from '@firebase/auth'
 import { addDoc, collection } from '@firebase/firestore'
+import { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { isEmail } from 'validator'
 import InputErrorMessage from '../../components/input-error-message/input-error-message.component'
 import { auth, db } from '../../config/firebase.config'
+import { UserContext } from '../../contexts/user.context'
 
 interface SignUpFormData {
   firstName: string
@@ -53,6 +56,16 @@ const SignUpPage = () => {
   }
 
   const watchPassword = watch('password')
+
+  const { isAuthenticated } = useContext(UserContext)
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/')
+    }
+  }, [isAuthenticated])
 
   return (
     <>
