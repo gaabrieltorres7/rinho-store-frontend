@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { onAuthStateChanged } from '@firebase/auth'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import { useContext, useState } from 'react'
+import Cart from './components/cart/cart.component'
 import Loading from './components/loading/loading.component'
 import { auth, db } from './config/firebase.config'
 import { UserContext } from './contexts/user.context'
@@ -48,6 +49,7 @@ const App = () => {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignUpPage />} />
       </Routes>
+      <Cart />
     </BrowserRouter>
   )
 }

@@ -7,7 +7,7 @@ interface ICartContext {
   toggleCart: () => void;
 }
 
-const CartContext = createContext<ICartContext>({
+export const CartContext = createContext<ICartContext>({
   isVisible: false,
   products: [],
   toggleCart: () => {}
@@ -17,7 +17,7 @@ interface CartContextProviderProps {
   children: React.ReactNode
 }
 
-const CartContextProvider: FC<CartContextProviderProps> = ({ children }) => {
+export const CartContextProvider: FC<CartContextProviderProps> = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false)
   const [products] = useState<CartProduct[]>([])
 
