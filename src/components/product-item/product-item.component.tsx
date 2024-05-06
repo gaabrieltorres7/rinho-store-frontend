@@ -12,7 +12,7 @@ const ProductItem: FC<ProductItemProps> = ({ product }) => {
       <ProductImage imageUrl={product.imageUrl} />
         <ProductInfo>
           <p>{product.name}</p>
-          <p>{product.price}</p>
+          <p>R$ {product.price}</p>
         </ProductInfo>
     </ProductContainer>
   )
