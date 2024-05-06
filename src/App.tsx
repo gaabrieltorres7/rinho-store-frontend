@@ -8,6 +8,7 @@ import Loading from './components/loading/loading.component'
 import { auth, db } from './config/firebase.config'
 import { UserContext } from './contexts/user.context'
 import { userConverter } from './converters/firestore.converters'
+import CategoryDetailsPage from './pages/category-details/category-details.page'
 import ExplorePage from './pages/explore/explore.page'
 import HomePage from './pages/home/home.page'
 import LoginPage from './pages/login/login.page'
@@ -43,6 +44,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/explore' element={<ExplorePage />} />
+        <Route path='/category/:id' element={<CategoryDetailsPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignUpPage />} />
       </Routes>
