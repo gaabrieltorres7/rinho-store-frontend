@@ -13,7 +13,7 @@ const CartItem: FC<CartItemProps> = ({ product }) => {
       <CartItemImage imageUrl={product.imageUrl} />
       <CartItemInfo>
         <p>{product.name}</p>
-        <p>{product.price}</p>
+        <p>R$ {product.price}</p>
 
         <CartItemQuantity>
           <AiOutlineMinus size={20} />
