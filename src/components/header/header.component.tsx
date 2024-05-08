@@ -9,7 +9,7 @@ import { HeaderContainer, HeaderItem, HeaderItems, HeaderTitle } from './header.
 
 const Header = () => {
   const { isAuthenticated } = useContext(UserContext)
-  const { toggleCart } = useContext(CartContext)
+  const { toggleCart, productsCount } = useContext(CartContext)
   const navigate = useNavigate()
 
   const handleLoginClick = () => {
@@ -42,7 +42,7 @@ const Header = () => {
         {isAuthenticated &&
           <HeaderItem onClick={() => signOut(auth)}>Sair</HeaderItem>
         }
-        <HeaderItem onClick={toggleCart}><BsCart3 size={25} /><p style={{ marginLeft: 4 }}>1</p></HeaderItem>
+        <HeaderItem onClick={toggleCart}><BsCart3 size={25} /><p style={{ marginLeft: 4 }}>{productsCount}</p></HeaderItem>
       </HeaderItems>
     </HeaderContainer>
   )
