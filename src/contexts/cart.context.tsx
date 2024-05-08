@@ -1,9 +1,10 @@
-import React, { FC, createContext, useState } from 'react'
+import React, { FC, createContext, useMemo, useState } from 'react'
 import CartProduct from '../types/cart.types'
 import Product from '../types/products.types'
 
 interface ICartContext {
   isVisible: boolean
+  productsTotalPrice: number
   products: CartProduct[]
   toggleCart: () => void
   addProductToCart: (product: Product) => void
@@ -14,6 +15,7 @@ interface ICartContext {
 
 export const CartContext = createContext<ICartContext>({
   isVisible: false,
+  productsTotalPrice: 0,
   products: [],
   toggleCart: () => { },
   addProductToCart: () => { },
@@ -29,6 +31,12 @@ interface CartContextProviderProps {
 export const CartContextProvider: FC<CartContextProviderProps> = ({ children }) => {
   const [isVisible, setIsVisible] = useState(false)
   const [products, setProducts] = useState<CartProduct[]>([])
+
+  const productsTotalPrice = useMemo(() => {
+    return products.reduce((acc, product) => {
+      return acc + product.price * product.quantity
+    }, 0)
+  }, [products])
 
   const toggleCart = () => {
     setIsVisible(prevState => !prevState)
@@ -82,6 +90,7 @@ export const CartContextProvider: FC<CartContextProviderProps> = ({ children }) 
     <CartContext.Provider value={{
       isVisible,
       products,
+      productsTotalPrice,
       toggleCart,
       addProductToCart,
       removeProductFromCart,
