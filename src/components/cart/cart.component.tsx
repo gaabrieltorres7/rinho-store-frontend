@@ -6,7 +6,7 @@ import CustomButton from '../custom-button/custom-button.component'
 import { CartContainer, CartContent, CartEscapeArea, CartTitle, CartTotal } from './cart.styles'
 
 const Cart: FC = () => {
-  const { isVisible, toggleCart, products, productsTotalPrice } = useContext(CartContext)
+  const { isVisible, toggleCart, products, productsTotalPrice, productsCount } = useContext(CartContext)
 
   return (
     <CartContainer isVisible={isVisible}>
@@ -18,8 +18,11 @@ const Cart: FC = () => {
           <CartItem key={product.id} product={product} />
         ))}
 
-        <CartTotal>Total: R$ {productsTotalPrice}</CartTotal>
-        <CustomButton startIcon={<BsCartCheck />}>Ir para o Checkout</CustomButton>
+        {productsCount > 0 && <CartTotal>Total: R$ {productsTotalPrice}</CartTotal>}
+        {productsCount > 0 && <CustomButton startIcon={<BsCartCheck />}>Ir para o Checkout</CustomButton>}
+
+        {productsCount === 0 && <p>Seu carrinho está vazio!</p>}
+
       </CartContent>
     </CartContainer>
   )
