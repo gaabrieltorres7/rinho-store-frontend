@@ -15,6 +15,7 @@ import CheckoutPage from './pages/checkout/checkout.page'
 import ExplorePage from './pages/explore/explore.page'
 import HomePage from './pages/home/home.page'
 import LoginPage from './pages/login/login.page'
+import PaymentConfirmationPage from './pages/payment-confirmation/payment-confirmation.page'
 import SignUpPage from './pages/sign-up/sign-up.page'
 
 const App = () => {
@@ -49,6 +50,7 @@ const App = () => {
         <Route path='/explore' element={<ExplorePage />} />
         <Route path='/category/:id' element={<CategoryDetailsPage />} />
         <Route path='/checkout' element={<AuthenticationGuard><CheckoutPage /></AuthenticationGuard>} />
+        <Route path='/payment-confirmation' element={<PaymentConfirmationPage />} />
         <Route path='/login' element={<LoginPage /> } />
         <Route path='/signup' element={<SignUpPage />} />
       </Routes>
