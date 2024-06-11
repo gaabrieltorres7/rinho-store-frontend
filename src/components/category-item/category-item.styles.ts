@@ -20,22 +20,32 @@ export const CategoryItemContainer = styled.div<CategoryItemContainerProps>`
   background-color: rgba(0, 0, 0, 0.3);
   background-blend-mode: color;
   background-image: ${(props) => `url('${props.backgroundImage}')`};
+
+  @media (max-width: 768px) {
+    padding: 0 50px 0 50px;
+    height: 300px;
+  }
 `
 
 export const CategoryName = styled.div`
   color: ${Colors.text.white};
   text-align: center;
   background: rgba(233, 236, 239, 0.45);
-  padding: 10px 30px 10px 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
   border-radius: 10px;
   border: 1px solid ${Colors.primary};
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition: all 0.5s ease;
-  &:hover{
+
+  &:hover {
     cursor: pointer;
     background: rgba(233, 236, 239, 0.55);
   }
-  & p:nth-child(1){
+
+  & p:nth-child(1) {
     font-weight: 600;
   }
 `
