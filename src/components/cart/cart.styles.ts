@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import Colors from '../../theme/theme.colors'
 
-interface CartContainerProps {
+interface CartContainerPros {
   isVisible: boolean
 }
 
-export const CartContainer = styled.div<CartContainerProps>`
+export const CartContainer = styled.div<CartContainerPros>`
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -36,6 +36,10 @@ export const CartContent = styled.div`
   background-color: white;
   padding: 20px;
   overflow-y: scroll;
+
+  @media (max-width: 768px) {
+    min-width: 85%;
+  }
 `
 export const CartTitle = styled.p`
   font-size: 1.325rem;
