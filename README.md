@@ -1,46 +1,79 @@
-# Getting Started with Create React App
+<h1 align="center" style="font-weight: bold;">Rinho Store 💻</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+ • <a href="#technologies">Technologies</a> • 
+ <a href="#started">Getting Started</a> • 
+ <a href="#colab">Collaborators</a>
+</p>
 
-## Available Scripts
+<p align="center">
+    <b>A simplified frontend ecommerce application built with React, featuring a fully functional shopping cart. The project uses React Hook Form, Stripe API, Context API and Styled Components. Integrated with Firebase for real-time database management and Google email auth for user login. The componentized arch ensures scalability and maintainability.</b>
+</p>
 
-In the project directory, you can run:
+<h2 id="layout">🎨 Layout</h2>
+<p align="center">
+  
+![home](https://github.com/gaabrieltorres7/rinho-store-frontend/assets/98062444/dfe07d78-512f-4636-aa18-b0b9bfb80b4e)
 
-### `yarn start`
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h2 id="technologies">💻 Technologies</h2>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- ReactJS
+- TypeScript
+- Context API
+- Styled Components
+- Stripe API(you must have the backend running, I just connected)
+- Firebase
+- React Hook Form
 
-### `yarn test`
+<h2 id="started">🚀 Getting started</h2>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h3>Prerequisites</h3>
 
-### `yarn build`
+- NodeJS
+- Git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h3>Cloning</h3>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/gaabrieltorres7/rinho-store-frontend
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h3>Config .env variables</h2>
 
-### `yarn eject`
+Use the `.env.example` as reference to create your configuration file `.env`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```yaml
+REACT_APP_API_URL=http://localhost:5000/
+**this was the backend url that I built to connect with Stripe***
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h3>Starting</h3>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+cd rinho-store-frontend
+npm i
+npm run start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<h2 id="colab">🤝 Collaborators</h2>
 
-## Learn More
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/98062444?v=4" width="100px;" alt="Gabriel Torres Profile Picture"/><br>
+        <sub>
+          <b>Gabriel Torres</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<h3>If you want to contribute, here are some documentations that might help</h3>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[📝 How to create a Pull Request](https://www.atlassian.com/br/git/tutorials/making-a-pull-request)
+
+[💾 Commit pattern](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
